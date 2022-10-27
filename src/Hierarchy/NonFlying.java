@@ -1,0 +1,64 @@
+package Hierarchy;
+
+import java.util.Objects;
+
+public class NonFlying extends Birds {
+    private String typeOfMovement;
+
+    public NonFlying(String name, String livingEnvironment, String typeOfMovement) {
+        super(name, livingEnvironment);
+        if (typeOfMovement != null  && !typeOfMovement.isBlank()) {
+            this.typeOfMovement = typeOfMovement;
+        } else {
+            this.typeOfMovement = "No information";
+        }
+    }
+
+    public NonFlying(String name, int age, String livingEnvironment, String typeOfMovement) {
+        super(name, age, livingEnvironment);
+        if (typeOfMovement != null && !typeOfMovement.isBlank()) {
+            this.typeOfMovement = typeOfMovement;
+        } else {
+            this.typeOfMovement = "No information";
+        }
+    }
+
+    public String getTypeOfMovement() {
+        return typeOfMovement;
+    }
+
+    public void walk() {
+        System.out.println("I walk fast");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("I eat everything I find");
+    }
+
+    @Override
+    public void go() {
+        System.out.println("I can go");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        NonFlying that = (NonFlying) o;
+        return typeOfMovement.equals(that.typeOfMovement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeOfMovement);
+    }
+
+    @Override
+    public String toString() {
+        return "Flightless{" +
+                "typeOfMovement='" + typeOfMovement + '\'' +
+                '}';
+    }
+}
